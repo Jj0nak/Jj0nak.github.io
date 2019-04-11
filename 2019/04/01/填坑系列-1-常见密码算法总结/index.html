@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">5.8k</span>阅读时长: <span class="post-count reading-time">30 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">5.8k</span>阅读时长: <span class="post-count reading-time">31 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -415,6 +415,7 @@ height:50vh;
 <p>一个MD5运算由类似的64次循环构成(如下图)，分成4组16次。F:一个非线性函数；一个函数运算一次。Mi:表示一个 32-bits 的输入数据，Ki:表示一个 32-bits 常数，用来完成每次不同的计算。</p>
 <p><img src="/2019/04/01/填坑系列-1-常见密码算法总结/MD5.png" alt=""></p>
 <p>本来只准备简单写一下……但是找到了一篇博客，而且复赛那道题的源码应该是就是在这个版本的源码上改动的，究极舒适.jpg。这篇博客写得非常详细，直接看博客好了。</p>
+<p><a href="https://blog.csdn.net/ZCShouCSDN/article/details/83866095" target="_blank" rel="noopener">https://blog.csdn.net/ZCShouCSDN/article/details/83866095</a></p>
 <h2 id="SHA-1"><a href="#SHA-1" class="headerlink" title="SHA-1"></a>SHA-1</h2><p>在看md5、sha-1、sha-2的时候发现这几类哈希函数大致的处理过程都是差不多的，比如说都要先做填充、附加、初始化寄存器，分块处理、会有一个结构体来储存相关信息等等。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="comment">/* 存储原始信息的bits数长度(不包括填充的bits)，最长为 2^64 bits。如果消息长度大于2^64，则只使用其低64位的值，即（消息长度 对 2^64取模） */</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> count[<span class="number">2</span>];</span><br><span class="line">	<span class="comment">/* 四个32bits数，用于存放最终计算得到的消息摘要。当消息长度大于 512bits时，也用于存放每个512bits的中间结果 */</span> </span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> state[<span class="number">4</span>];</span><br><span class="line">	<span class="comment">/*存放输入的信息的缓冲区，512bits */</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> buffer[<span class="number">64</span>];</span><br><span class="line">&#125; MD5_CTX;</span><br></pre></td></tr></table></figure>
 <p>无论是md5、还是sha-1、sha-2中都会有一个结构体，储存的信息也都差不多。</p>
@@ -432,6 +433,7 @@ height:50vh;
 <p><img src="/2019/04/01/填坑系列-1-常见密码算法总结/800px-SHA-1.svg.png" alt=""></p>
 <p>emmmmm感觉好像没什么写的了orz….</p>
 <p>找到了一篇很好的博客，算了直接放地址吧…..</p>
+<p><a href="https://blog.csdn.net/ZCShouCSDN/article/details/83866095" target="_blank" rel="noopener">https://blog.csdn.net/ZCShouCSDN/article/details/83866095</a></p>
 <p>和写md5那篇博客是同一个作者</p>
 <h2 id="SHA-256"><a href="#SHA-256" class="headerlink" title="SHA-256"></a>SHA-256</h2><p>由于sha-1的不安全性，所以就有了sha-2系列。sha-256是sha-2算法的一种，因其消息摘要长度为256位而得名，与sha-224、sha-384、sha-512等同属一个系列，不同如下</p>
 <blockquote>
@@ -463,6 +465,8 @@ height:50vh;
 <p>SHA-2的第t个加密循环如下图所示。图中的深蓝色方块是事先定义好的非线性函数。ABCDEFGH一开始分别是八个初始值，Kt是第t个密钥，Wt是本区块产生第t个word。原消息被切成固定长度的区块，对每一个区块，产生n个word（n视算法而定），透过重复运作循环n次对ABCDEFGH这八个工作区块循环加密。最后一次循环所产生的八段字符串合起来即是此区块对应到的散列字符串。若原消息包含数个区块，则最后还要将这些区块产生的散列字符串加以混合才能产生最后的散列字符串。</p>
 <p><img src="/2019/04/01/填坑系列-1-常见密码算法总结/1280.svg.png" alt=""></p>
 <h2 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h2><p>直接放两篇博客算了……这两篇写得很清楚明了。</p>
+<p><a href="https://github.com/matt-wu/AES" target="_blank" rel="noopener">https://github.com/matt-wu/AES</a></p>
+<p><a href="https://blog.csdn.net/qq_28205153/article/details/55798628" target="_blank" rel="noopener">https://blog.csdn.net/qq_28205153/article/details/55798628</a></p>
 <p>算了还是瞎jb写点东西吧，aes算法一个重要的特征就是有一个S盒，以及初始密钥。比如2018年湖湘杯的一题</p>
 <p><img src="/2019/04/01/填坑系列-1-常见密码算法总结/Snipaste_2019-04-03_20-34-38.png" alt=""></p>
 <p>很容易可以看出<code>byte_7FF62DD6DA40</code>是初始密钥，点进<code>byte_7FF62DD6AC50</code>可以看到这是一个s盒</p>
@@ -496,11 +500,13 @@ height:50vh;
 </blockquote>
 <p>emmm主要还是看了看SM4吧。</p>
 <p>一篇博客，关于SM4的。</p>
+<p><a href="https://blog.csdn.net/cg129054036/article/details/83012721" target="_blank" rel="noopener">https://blog.csdn.net/cg129054036/article/details/83012721</a></p>
 <p>然后是知乎上一个作者写的一系列的文章，SM2、SM3、SM4都介绍得还可以。</p>
+<p><a href="https://www.zhihu.com/people/diao-si-pao-niu-bu-kao-ji-zhu/posts" target="_blank" rel="noopener">https://www.zhihu.com/people/diao-si-pao-niu-bu-kao-ji-zhu/posts</a></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>感觉自己全程化身博客搬运工……算了就当复习密码学了</p>
-<p>[]: <a href="https://github.com/B-Con/crypto-algorithms" target="_blank" rel="noopener">https://github.com/B-Con/crypto-algorithms</a></p>
+<p> <a href="https://github.com/B-Con/crypto-algorithms" target="_blank" rel="noopener">https://github.com/B-Con/crypto-algorithms</a></p>
 <p>一个算法源码的库，都是一些比较常见的算法。</p>
-<p>[]: <a href="https://tls.mbed.org/source-code" target="_blank" rel="noopener">https://tls.mbed.org/source-code</a><br>[]: <a href="https://www.oryx-embedded.com/doc/files.html" target="_blank" rel="noopener">https://www.oryx-embedded.com/doc/files.html</a></p>
+<p> <a href="https://tls.mbed.org/source-code" target="_blank" rel="noopener">https://tls.mbed.org/source-code</a><br> <a href="https://www.oryx-embedded.com/doc/files.html" target="_blank" rel="noopener">https://www.oryx-embedded.com/doc/files.html</a></p>
 <p>这些是我看源码的时候主要用到的网站。</p>
 
     </article>
@@ -510,7 +516,7 @@ height:50vh;
             <p>原文作者：<a href="https://Jj0nak.github.io">Jj0nak</a>
             <p>原文链接：<a href="https://Jj0nak.github.io/2019/04/01/填坑系列-1-常见密码算法总结/">https://Jj0nak.github.io/2019/04/01/填坑系列-1-常见密码算法总结/</a>
             <p>发表日期：<a href="https://Jj0nak.github.io/2019/04/01/填坑系列-1-常见密码算法总结/">April 1st 2019, 10:36:43 am</a>
-            <p>更新日期：<a href="https://Jj0nak.github.io/2019/04/01/填坑系列-1-常见密码算法总结/">April 11th 2019, 9:33:53 pm</a>
+            <p>更新日期：<a href="https://Jj0nak.github.io/2019/04/01/填坑系列-1-常见密码算法总结/">April 11th 2019, 10:32:40 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
