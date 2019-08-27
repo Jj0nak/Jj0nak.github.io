@@ -346,6 +346,47 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/04/29/从一道reverse学一下爆破/" >
+            
+                <span>从一道reverse学一下爆破</span>
+        </a>
+        <div class="abstract-content">
+            利用简单的爆破解题这里以去年湖湘杯初赛的HighwayHash64做尝试。
+拿到题目运行一下。
+
+注意括号内给出的提示：flag为数字，这就为我们的爆破提供了条件。
+同时这个题目的名字也很有意思，可以在github上搜到这个项目，是一个google提出的改进哈希算法，这道题目在此基础上做了修改。
+ida里看一下
+
+可以很明显的看到两个关键的验证函数，容易猜出这就是关键的哈希函数。
+此时基于这道题有不少思路，比如
+
+我们可以从github上拿到这个哈希算法的源码，那我们可以通过找到不同修改后，将这个哈希算法写入到一个头文件中，再写一个程序文件调用这个头文件中的算法进行调用
+
+也可以用pyt...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/29</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "reverse">reverse</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/04/01/填坑系列-1-常见密码算法总结/" >
             
                 <span>填坑系列(1)-常见密码算法总结</span>
@@ -437,9 +478,16 @@ MD5果然是不可能有好的开头的……到网上去找md5的源码想看�
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 2
+        Total : 3
         </div>
         <!-- search  -->
         
@@ -452,6 +500,11 @@ MD5果然是不可能有好的开头的……到网上去找md5的源码想看�
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/29</span><a class="archive-post-title" href= "/2019/04/29/从一道reverse学一下爆破/" >从一道reverse学一下爆破</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -468,9 +521,11 @@ MD5果然是不可能有好的开头的……到网上去找md5的源码想看�
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="life"><span class="iconfont-archer">&#xe606;</span>life</span>
+        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
         <span class="sidebar-tag-name" data-tags="cryptography"><span class="iconfont-archer">&#xe606;</span>cryptography</span>
+    
+        <span class="sidebar-tag-name" data-tags="life"><span class="iconfont-archer">&#xe606;</span>life</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
